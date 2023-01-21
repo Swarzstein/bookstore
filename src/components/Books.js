@@ -1,22 +1,28 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import AddBook from './AddBook';
 import Book from './Book';
 
 export default class Books extends Component {
-  constructor(){
+  constructor() {
     super();
     this.state = {
-      books: [],
+      books: [
+        {
+          id: 0,
+          title: 'Hunger Games',
+          author: 'Suzanne Collins',
+        },
+      ],
     };
   }
 
   render() {
-    console.log('rendering')
+    const { books } = this.state;
     return (
       <div>
-        {this.state.books.map(book => <Book title={book.title} author={book.author} />)}
+        {books.map((book) => <Book key={book.id} title={book.title} author={book.author} />)}
         <AddBook />
       </div>
-    )
+    );
   }
 }

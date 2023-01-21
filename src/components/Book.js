@@ -1,12 +1,13 @@
-import React, { useState } from 'react'
+/* eslint-disable react/prop-types */
+import React from 'react';
 
 export default function Book(props) {
-  console.log(props);
+  const { title, author } = props;
   return (
     <div>
-      <h2>{props.title}</h2>
-      <h3>{props.author}</h3>
+      <h2>{title}</h2>
+      <h3>{author}</h3>
       <button type="button">Remove</button>
     </div>
-  )
+  );
 }
