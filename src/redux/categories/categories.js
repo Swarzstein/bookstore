@@ -1,7 +1,6 @@
 export default function categoriesReducer(state = {}, action) {
   switch (action.type) {
-    case 'ADD_BOOK': return {};
-    case 'REMOVE_BOOK': return {};
+    case 'CHECK_STATUS': return 'Under construction';
     default: return state;
   }
 }
