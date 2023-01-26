@@ -1,28 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import AddBook from './AddBook';
 import Book from './Book';
 
-export default class Books extends Component {
-  constructor() {
-    super();
-    this.state = {
-      books: [
-        {
-          id: 0,
-          title: 'Hunger Games',
-          author: 'Suzanne Collins',
-        },
-      ],
-    };
-  }
-
-  render() {
-    const { books } = this.state;
-    return (
-      <div>
-        {books.map((book) => <Book key={book.id} title={book.title} author={book.author} />)}
-        <AddBook />
-      </div>
-    );
-  }
+export default function Books() {
+  const books = useSelector((state) => state.books);
+  let id = 0;
+  return (
+    <div>
+      {books.map((book) => {
+        id += 1;
+        return <Book key={id} id={book.id} title={book.title} author={book.author} />;
+      })}
+      <AddBook />
+    </div>
+  );
 }
