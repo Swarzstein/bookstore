@@ -7,7 +7,7 @@ const GET_BOOKS = 'bookstore/books/GET_BOOKS';
 export default function booksReducer(state = [], action) {
   switch (action.type) {
     case ADD_BOOK: return [...state, action.newBook];
-    case REMOVE_BOOK: return state.filter((book) => book.id !== action.id);
+    case REMOVE_BOOK: return state.filter((book) => book.item_id !== action.item_id);
     case GET_BOOKS: return action.books;
     default: return state;
   }
@@ -22,9 +22,10 @@ export const addBook = (newBook) => async (dispatch) => {
 };
 
 export const removeBook = (id) => async (dispatch) => {
+  api.deleteBook(id);
   dispatch({
     type: REMOVE_BOOK,
-    id,
+    item_id: id,
   });
 };
 

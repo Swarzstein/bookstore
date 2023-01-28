@@ -21,24 +21,26 @@ export const getBooks = async () => {
 };
 
 export async function addBook(book) {
-  console.log(JSON.stringify(book));
   try {
     const request = await fetch(`https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/${key}/books`, {
       method: 'POST',
       body: JSON.stringify(book),
       headers: {
-        'Content-Type': 'aplication/json',
+        'Content-Type': 'application/json',
       },
     });
-    console.log(request);
     return request.status;
   } catch (error) {
-    console.log(error);
     return error;
   }
 }
 
-export function deleteBook() {
-  const request = '';
-  return request;
+export async function deleteBook(id) {
+  const request = await fetch(`https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/${key}/books/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  return request.status;
 }

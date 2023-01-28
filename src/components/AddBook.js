@@ -5,7 +5,7 @@ import { addBook } from '../redux/books/books';
 export default function AddBook() {
   const [newTitle, setNewtitle] = useState('');
   const [newAuthor, setNewAuthor] = useState('');
-  const [category, setCategory] = useState('');
+  const [category, setCategory] = useState('Documentary');
   const books = useSelector((state) => state.books);
   const dispatch = useDispatch();
   const addNewBook = (e) => {
