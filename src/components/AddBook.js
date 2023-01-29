@@ -20,13 +20,12 @@ export default function AddBook() {
     setNewAuthor('');
   };
   return (
-    <div>
+    <section id="add-book">
+      <h2>ADD NEW BOOK</h2>
       <form action="" onSubmit={addNewBook}>
-        <span>Title: </span>
-        <input id="formTitle" type="text" name="title" value={newTitle} onChange={(e) => setNewtitle(e.target.value)} />
-        <span>Author: </span>
-        <input id="formAuthor" type="text" name="author" value={newAuthor} onChange={(e) => setNewAuthor(e.target.value)} />
-        <select onChange={(e) => setCategory(e.target.value)}>
+        <input className="form-input" id="formTitle" type="text" name="title" value={newTitle} onChange={(e) => setNewtitle(e.target.value)} placeholder="Book title" required />
+        <input className="form-input" id="formAuthor" type="text" name="author" value={newAuthor} onChange={(e) => setNewAuthor(e.target.value)} placeholder="Author" required />
+        <select className="form-input" onChange={(e) => setCategory(e.target.value)}>
           <option value="Documentary">Documentary</option>
           <option value="Drama">Drama</option>
           <option value="Fantasy">Fantasy</option>
@@ -36,6 +35,6 @@ export default function AddBook() {
         </select>
         <button type="submit">ADD BOOK</button>
       </form>
-    </div>
+    </section>
   );
 }

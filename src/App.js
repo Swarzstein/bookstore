@@ -4,19 +4,23 @@ import {
 import './App.css';
 import Books from './components/Books';
 import Categories from './components/Categories';
+import { activeBook, activeCategory } from './modules/activeNav';
 
 function App() {
   return (
     <BrowserRouter>
       <div className="App">
         <header className="App-header">
-          <h1>Bookstore</h1>
           <nav>
+            <h1>Bookstore CSM</h1>
             <ul>
-              <li><Link to="/">BOOKS</Link></li>
-              <li><Link to="categories">CATEGORIES</Link></li>
+              <li><Link to="/" id="book-nav" className="nav-link active-link" onClick={activeBook}>BOOKS</Link></li>
+              <li><Link to="categories" id="category-nav" className="nav-link" onClick={activeCategory}>CATEGORIES</Link></li>
             </ul>
           </nav>
+          <button className="icon-button" type="button">
+            <span className="material-icons primary-color">person</span>
+          </button>
         </header>
         <Routes>
           <Route index element={<Books />} />

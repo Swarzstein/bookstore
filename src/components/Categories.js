@@ -10,8 +10,8 @@ export default function Categories() {
     dispatch(action);
   };
   return (
-    <div>
-      <p>{status}</p>
+    <div className="container">
+      <h1>{status}</h1>
       <button type="button" onClick={() => displayState(checkStatus())}>Check Status</button>
     </div>
   );
